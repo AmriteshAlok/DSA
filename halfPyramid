@@ -1,4 +1,4 @@
-//Half Pyramid
+//Half Pyramid without using function
 #include <iostream> 
 using namespace std;
 int main() {
