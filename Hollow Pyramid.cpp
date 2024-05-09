@@ -17,9 +17,10 @@ void hollowPyramid(int numOfRows){
       }
       //For spaces in between stars
       else{
-        cout<<" ";
+        cout<<"  ";
       }
     }
+    cout<<endl;
   }
 }
 
