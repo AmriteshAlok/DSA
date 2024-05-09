@@ -11,8 +11,8 @@ void flippedSolidiamond(int numOfRows){
     cout<<"*";
   }
   //To create spaces in between
-   for(int m=0;m<i;m++){
-      cout<<" "<<" ";
+   for(int m=0;m<2*i+1;m++){
+      cout<<" ";
     }
   //To create the upper right pyramid of the diamond
   for(int l=0;l<numOfRows-i;l++){
@@ -28,8 +28,8 @@ void flippedSolidiamond(int numOfRows){
     cout<<"*";
   }
   //To create spaces in between
-  for(int k=0;k<numOfRows-i-1;k++){
-    cout<<" "<<" ";
+  for(int k=0;k<2*numOfRows-2*i-1;k++){
+    cout<<" ";
   }
   //To create the lower right pyramid
   for(int m=0;m<i+1;m++){
