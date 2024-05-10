@@ -41,6 +41,6 @@ void butterfly(int numOfRows){
 int main() {
   int n;
   cin>>n;
-  numericStarFloydsTriangle(n);
+  butterfly(n);
   return 0;
 }
