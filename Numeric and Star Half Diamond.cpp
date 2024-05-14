@@ -1,6 +1,6 @@
 //To create Ha Diamond using Numbers and Stars
 
-#include<iostrean> 
+#include<iostream> 
 using namespace std;
 
 void numericHalfDiamond(int numOfRows){
