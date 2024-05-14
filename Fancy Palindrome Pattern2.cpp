@@ -51,6 +51,54 @@ void fancyPatern(int numOfRows){
  }
 }
 
+void anotherWay(int numOfRows){
+  for(int i=0;i<numOfRows;i++){
+    int count=0;
+    for(int j=0;j<i+1;j++){
+      if(j==0){
+        cout<<"*"<<" ";
+      }
+      else{
+      cout<<j<<" ";
+      }
+      count=j;
+    }
+
+    for(int k=count-1;k>=0;k--){
+      if(k==0){
+        cout<<"*"<<" ";
+      }
+      else{
+      cout<<k<<" ";
+      }
+    }
+    cout<<endl;
+  }
+
+ for(int i=0;i<numOfRows;i++){
+    int count=0;
+    for(int j=0;j<numOfRows-i-1;j++){
+      if(j==0){
+        cout<<"*"<<" ";
+      }
+      else{
+      cout<<j<<" ";
+      }
+      count=j;
+    }
+
+    for(int k=count-1;k>=0;k--){
+      if(k==0){
+        cout<<"*"<<" ";
+      }
+      else{
+      cout<<k<<" ";
+      }
+    }
+    cout<<endl;
+  }
+ 
+}
 int main() {
   int n;
   cin>>n;
