@@ -1,0 +1,87 @@
+Using pass by value in arrays
+
+In C++, arrays cannot be passed by value directly. When you pass an array to a function, it is actually passing the pointer to the first element of the array, which is essentially passing by reference. However, there are a few workarounds to achieve something similar to passing an array by value:
+
+1. **Passing as a Sized Array**: In this method, we pass the array in the same way we declare it with the array type, name, and size¹. Here is an example:
+```cpp
+#include <iostream>
+using namespace std;
+
+void printarray(int a[10]) {
+    for (int i = 0; i < 5; i++)
+        a[i] = a[i] + 5;
+}
+
+int main() {
+    int a[5] = {1, 2, 3, 4, 5};
+    printarray(a);
+    for (int i = 0; i < 5; i++)
+        cout << a[i] << " ";
+    return 0;
+}
+```
+
+2. **Passing as an Unsized Array**: This method is similar to the previous method, but the difference is that we don't specify the size of the array¹. Here is an example:
+```cpp
+#include <iostream>
+using namespace std;
+
+void printarray(int a[], int size) {
+    for (int i = 0; i < size; i++)
+        a[i] = a[i] + 5;
+}
+
+int main() {
+    int a[5] = {1, 2, 3, 4, 5};
+    int n = 5;
+    printarray(a, n);
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+    return 0;
+}
+```
+
+3. **Passing Array as a Pointer**: In this method, we pass the memory address of the first element of the array¹. Here is an example:
+```cpp
+#include <iostream>
+using namespace std;
+
+void printarray(int* a) {
+    for (int i = 0; i < 5; i++)
+        *(a + i) = *(a + i) + 5;
+}
+
+int main() {
+    int a[5] = {1, 2, 3, 4, 5};
+    printarray(a);
+    for (int i = 0; i < 5; i++)
+        cout << a[i] << " ";
+    return 0;
+}
+```
+
+4. **Passing Array as a Reference**: In this method, we pass an array to a function as a reference and also explicitly pass its size¹. Here is an example:
+```cpp
+#include <iostream>
+using namespace std;
+
+void modifyArray(int (&arr)[5]) {
+    int size = sizeof(arr) / sizeof(int);
+    for (int i = 0; i < size; ++i) {
+        arr[i] *= 2;
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    modifyArray(arr);
+    for (int i = 0; i < 5; ++i) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
+```
+
+5. **Using `std::array` or `std::vector`**: If you want to pass an array by value, you can use `std::array` or `std::vector`². These containers in the Standard Library support copy semantics, which means they can be passed by value.
+
+Remember, when you pass an array by value (or what seems like value), you're actually creating a copy of the array. So any changes you make inside the function will not affect the original array. However, this also means that you're using extra memory to create the copy, which might not be desirable for large arrays. Always consider these trade-offs when deciding how to pass arrays to functions.
